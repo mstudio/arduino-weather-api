@@ -175,7 +175,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/arduino-weather-api/production/1672448628639-2022-12-31T01:03:48.639Z/arduino-weather-api.zip"
+                "S3Key": "serverless/arduino-weather-api/production/1672450131770-2022-12-31T01:28:51.770Z/arduino-weather-api.zip"
               },
               "Handler": "lambda.universal",
               "Runtime": "nodejs16.x",
@@ -193,14 +193,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersion69Zsq24eqniQoK8i1S1nK13QOrFb7IsyCivtpqFk6vs": {
+          "ApiLambdaVersionPmChD0xR25XlKihRB2fEIXbqbOhG8FImiouxPt6Q": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "mpQVmaowpF7i8gDLgiCMBQ3Iy2WE11yO4W6OCTbezPc="
+              "CodeSha256": "g6vV3gVXepnqTi6kK9VBJZBPzxZL1O3FPJN0CErq54s="
             }
           },
           "ApiGatewayRestApi": {
@@ -325,7 +325,7 @@
               "ApiLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1672448620918": {
+          "ApiGatewayDeployment1672450127839": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -388,7 +388,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersion69Zsq24eqniQoK8i1S1nK13QOrFb7IsyCivtpqFk6vs"
+              "Ref": "ApiLambdaVersionPmChD0xR25XlKihRB2fEIXbqbOhG8FImiouxPt6Q"
             },
             "Export": {
               "Name": "sls-arduino-weather-api-production-ApiLambdaFunctionQualifiedArn"
@@ -524,7 +524,7 @@
         "timeout": 10,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "ApiLambdaVersion69Zsq24eqniQoK8i1S1nK13QOrFb7IsyCivtpqFk6vs"
+        "versionLogicalId": "ApiLambdaVersionPmChD0xR25XlKihRB2fEIXbqbOhG8FImiouxPt6Q"
       }
     },
     "configValidationMode": "warn",
@@ -543,7 +543,7 @@
     "artifact": "/Users/motz/Documents/Arduino/weather-api/arduino-weather-api/.serverless/arduino-weather-api.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/arduino-weather-api/production/1672448628639-2022-12-31T01:03:48.639Z",
+    "artifactDirectoryName": "serverless/arduino-weather-api/production/1672450131770-2022-12-31T01:28:51.770Z",
     "artifact": "arduino-weather-api.zip"
   }
 }
