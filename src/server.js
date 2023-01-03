@@ -7,6 +7,13 @@ const port = process.env.PORT || 8000;
 const NWS_API_URL = "https://api.weather.gov/gridpoints"
 
 
+// Disable caching (for Cloudfront)
+app.set('etag', false);
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'no-store')
+  next()
+});
+
 /**
  * GET a simple JSON  forecast. Each day has: hi, lo (in F), and forecast, e.g. "Partly Cloudy"
  */

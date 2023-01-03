@@ -3,34 +3,40 @@
 /**
  * 
  * @param {String} string 2022-12-30T17:00:00-05:00
- * @returns {Date} Thu Dec 29 2022 19:00:00 GMT-0500 (Eastern Standard Time)
+ * @returns {Array} [year, monthIndex, day]
  */
 module.exports.getDateFromString = (string) => {
   const dateString = string.split('T')[0];
-  const date = new Date(dateString);
-  return date;
+  let dateArr = dateString.split('-');
+  dateArr = dateArr.map(d => Number(d));
+  dateArr[1] = dateArr[1] - 1;
+  return dateArr;
 }
 
 
 /**
- * @param {Date} a 
- * @param {Date} b 
+ * @param {String} a e.g. 2023-01-03T14:00:00.000Z
+ * @param {String} b e.g. 2023-01-03T14:00:00.000Z
  * @returns {Number} of days btw date objects https://stackoverflow.com/a/15289883/914360
  */
 module.exports.getDayDiff = (a, b) => {
   const MS_PER_DAY = 1000 * 60 * 60 * 24;
   // Discard the time and time-zone information.
-  const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
-  const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+  const aArr = this.getDateFromString(a);
+  const bArr = this.getDateFromString(b);
+  const utc1 = Date.UTC(aArr[0], aArr[1], aArr[2]);
+  const utc2 = Date.UTC(bArr[0], bArr[1], bArr[2]);
   const diff = Math.floor((utc2 - utc1) / MS_PER_DAY);
   return diff;
 }
 
 module.exports.formatSimpleForecast = (periods, days = 2) => {
-  const today = new Date(periods[0].startTime);
+  const today = periods[0].startTime;
   const output = [];
   for (i = 0; i < days; i++) {
-    const filteredPeriods = periods.filter((p) => this.getDayDiff(today, new Date(p.startTime)) === i);
+    const filteredPeriods = periods.filter((p) => {
+      return this.getDayDiff(today, p.startTime) === i;
+    });
     const day = filteredPeriods[0];
     const night = filteredPeriods[1] || day;
     const formattedPeriods = {
