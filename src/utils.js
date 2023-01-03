@@ -22,10 +22,11 @@ module.exports.getDayDiff = (a, b) => {
   // Discard the time and time-zone information.
   const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
   const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
-  return Math.floor((utc2 - utc1) / MS_PER_DAY);
+  const diff = Math.floor((utc2 - utc1) / MS_PER_DAY);
+  return diff;
 }
 
-module.exports.formatSimpleForecast = (periods, days = 4) => {
+module.exports.formatSimpleForecast = (periods, days = 2) => {
   const today = new Date(periods[0].startTime);
   const output = [];
   for (i = 0; i < days; i++) {
