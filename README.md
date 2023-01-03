@@ -12,7 +12,7 @@ https://www.weather.gov/documentation/services-web-api
   
 https://api.weather.gov/gridpoints/ALY/52,15/forecast
 
-<hr />
+<br />
 
 ## Lambda (API Gateway) endpoint
 
@@ -20,7 +20,7 @@ The code is deployed to Lambda (see below for deployment steps). An API Gateway 
 
 https://56gikm5okc.execute-api.us-east-1.amazonaws.com/production/simple-forecast?office=ALY&gridX=52&gridY=15
 
-<hr />
+<br />
 
 ## Cloudfront
 
@@ -35,7 +35,7 @@ One note: when setting "Behavior" for the Cloudfront CDN, use "Legacy Cache Sett
 
 ![Cache key and origin requests](./docs/aws-cloudfront-cache.png)
 
-<hr />
+<br />
 
 ## Development
 
@@ -46,7 +46,8 @@ npm run dev
 
 View in http://localhost:8000/simple-forecast?office=ALY&gridX=52&gridY=15
 
-<hr />
+<br />
+
 ## Deployment to Lambda
 
 Ensure that aws-cli is installed along with your API key and secret
@@ -55,7 +56,7 @@ Ensure that aws-cli is installed along with your API key and secret
 npm run deploy
 ```
 
-<hr />
+<br />
 
 ## Issues
 
