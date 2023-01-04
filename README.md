@@ -8,7 +8,7 @@ Node/Lambda based app which makes calls to National Weather service and simplifi
 
 https://www.weather.gov/documentation/services-web-api
 
-**Sample API Cal for NY**:
+**Sample API Cal for Upstate NY**:
   
 https://api.weather.gov/gridpoints/ALY/52,15/forecast
 
@@ -18,14 +18,14 @@ https://api.weather.gov/gridpoints/ALY/52,15/forecast
 
 The code is deployed to Lambda (see below for deployment steps). An API Gateway is automatically created as well. Below is a sample url:
 
-https://56gikm5okc.execute-api.us-east-1.amazonaws.com/production/simple-forecast?office=ALY&gridX=52&gridY=15
+https://[API-GATEWAY-ENDPOINT]/production/simple-forecast?office=ALY&gridX=52&gridY=15
 
 <br />
 
 ## Cloudfront
 
 The Arduino Ethernet Lib/Shield does not support TLS (HTTPS). As a workaround, Cloudfront is used as a proxy since it allows HTTP-only:
-https://d2boyfgp9fovjg.cloudfront.net/production/simple-forecast?office=ALY&gridX=52&gridY=15
+http://[CLOUDFRONT-ENDPOINT]/simple-forecast?office=ALY&gridX=52&gridY=15
 
 When setting behavior for this, we want to disable any caching since the application is only accessed periodically, and we always want the latest weather info.
 
