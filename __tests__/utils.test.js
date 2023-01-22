@@ -9,6 +9,24 @@ describe('Testing weather utils...', () => {
         );
     });
 
+    test('Partly sunny', () => {
+        expect(getOneWordForecast('Partly sunny')).toBe(
+            'part-sun'
+        );
+    });
+
+    test('clouds and then partial sunshine', () => {
+        expect(getOneWordForecast('clouds and then partial sunshine')).toBe(
+            'part-sun'
+        );
+    });
+
+    test('rain and then partial sunshine', () => {
+        expect(getOneWordForecast('rain and then partial sunshine')).toBe(
+            'rain'
+        );
+    });
+
     test('Rain and Wind then sun', () => {
         expect(getOneWordForecast('Rain and Wind then sun')).toBe(
             'wind'

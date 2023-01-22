@@ -37,6 +37,7 @@ module.exports.getOneWordForecast = (forecast) => {
     if (f.includes('sleet') || f.includes('freezing rain')) return 'sleet';
     if (f.includes('wind')) return 'wind';
     if (f.includes('rain')) return 'rain';
+    if (f.includes('partly sunny') || f.includes('partly cloudy') || f.includes('partial sun') || f.includes('partial clouds')) return 'part-sun';
     if (f.includes('cloud')) return 'clouds';
     return 'sun';
   } catch (err) {
