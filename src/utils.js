@@ -56,7 +56,7 @@ module.exports.formatSimpleForecast = (periods, days = 2) => {
     const formattedPeriods = {
       hi: day.temperature,
       lo: night.temperature,
-      forecast: getOneWordForecast(day.shortForecast)
+      forecast: this.getOneWordForecast(day.shortForecast)
     }
     output.push(formattedPeriods);
   }
