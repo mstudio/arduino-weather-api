@@ -3,6 +3,12 @@ const { getOneWordForecast } = require('../src/utils');
 
 describe('Testing weather utils...', () => {
 
+    test('Clouds and freezing rain', () => {
+        expect(getOneWordForecast('Clouds and freezing rain')).toBe(
+            'sleet'
+        );
+    });
+
     test('Rain and Wind then sun', () => {
         expect(getOneWordForecast('Rain and Wind then sun')).toBe(
             'wind'

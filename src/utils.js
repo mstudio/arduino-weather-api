@@ -34,7 +34,7 @@ module.exports.getOneWordForecast = (forecast) => {
   try {
     const f = forecast.toLowerCase();
     if (f.includes('snow')) return 'snow';
-    if (f.includes('sleet')) return 'sleet';
+    if (f.includes('sleet') || f.includes('freezing rain')) return 'sleet';
     if (f.includes('wind')) return 'wind';
     if (f.includes('rain')) return 'rain';
     if (f.includes('cloud')) return 'clouds';
