@@ -10,11 +10,13 @@
     "nodemon": "^2.0.20"
   },
   "devDependencies": {
+    "jest": "^29.3.1",
     "serverless": "^3.26.0"
   },
   "scripts": {
     "dev": "nodemon local.js",
-    "deploy": "serverless deploy"
+    "deploy": "serverless deploy",
+    "test": "jest --watchAll"
   },
   "repository": {
     "type": "git",

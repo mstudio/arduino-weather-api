@@ -30,6 +30,20 @@ module.exports.getDayDiff = (a, b) => {
   return diff;
 }
 
+module.exports.getOneWordForecast = (forecast) => {
+  try {
+    const f = forecast.toLowerCase();
+    if (f.includes('snow')) return 'snow';
+    if (f.includes('sleet')) return 'sleet';
+    if (f.includes('wind')) return 'wind';
+    if (f.includes('rain')) return 'rain';
+    if (f.includes('cloud')) return 'clouds';
+    return 'sun';
+  } catch (err) {
+    return 'sun';
+  }
+}
+
 module.exports.formatSimpleForecast = (periods, days = 2) => {
   const today = periods[0].startTime;
   const output = [];
